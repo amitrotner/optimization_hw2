@@ -1,0 +1,1448 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+% Variables to change every new document
+\newcommand{\hmwkClass}{236330 - Introduction to Optimization} % Course/class
+\newcommand{\hmwkNumber}{2} % Homework number
+
+% Constants to set once
+\newcommand{\hmwkAuthorNameI}{Amit Rotner} % Your name
+\newcommand{\hmwkStudentNumberI}{123456789} % Student number
+\newcommand{\hmwkAuthorNameII}{Or Steiner} % Your name
+\newcommand{\hmwkStudentNumberII}{123456789} % Student number
+
+% Packages
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+% General document properties
+\linespread{1.1} % Line spacing
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+% Required to not count titlepage in page numbering
+\addtocounter {page} {-1}
+
+% Make a simple command for use in document body
+\newcommand{\start}{
+\maketitle
+\thispagestyle{empty}
+\newpage
+}
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\hmwkAuthorNameI\ and \hmwkAuthorNameII} % Top left header
+\rhead{\hmwkClass:\ Homework\ \#\hmwkNumber}
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \protect\pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+% The following 2 commands setup the title page
+\title{
+\vspace{2in}
+\textmd{\textbf{\hmwkClass:\ \\ Homework\ \#\hmwkNumber}}\\
+\normalsize\vspace{0.1in}\small{ \today }\\
+\vspace{3in}
+}
+
+\author{
+  \textbf{\hmwkAuthorNameI} \\
+  \texttt{\hmwkStudentNumberI} \\
+	\textbf{\hmwkAuthorNameII} \\
+  \texttt{\hmwkStudentNumberII}
+}
+
+% Do not display standard date since we use a custom date
+\date{}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip bigskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+start
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+Gradient Descent method and Newton method
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Task 1 – Convex sets and functions:
+\end_layout
+
+\begin_layout Subsubsection*
+Q1:
+\end_layout
+
+\begin_layout Standard
+Show that if 
+\begin_inset Formula $f_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{2}$
+\end_inset
+
+ are convex functions on a convex domain 
+\begin_inset Formula $C$
+\end_inset
+
+, then 
+\begin_inset Formula $g(x)=max_{i=1,2}f_{i}(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is also a convex function.
+\end_layout
+
+\begin_layout Subsubsection*
+Solution:
+\end_layout
+
+\begin_layout Standard
+We know that 
+\begin_inset Formula $f_{1}$
+\end_inset
+
+ is a convex function, hence 
+\begin_inset Formula $\forall x_{1},x_{2}\in C$
+\end_inset
+
+, 
+\begin_inset Formula $\forall\alpha\in\left[0,1\right]$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+f_{1}\left(\alpha x_{1}+\left(1-\alpha\right)x_{2}\right)\le\alpha f_{1}\left(x_{1}\right)+\left(1-\alpha\right)f_{1}\left(x_{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In addition, 
+\begin_inset Formula $f_{1}$
+\end_inset
+
+ is a convex function, hence 
+\begin_inset Formula $\forall x_{1},x_{2}\in C$
+\end_inset
+
+, 
+\begin_inset Formula $\forall\alpha\in\left[0,1\right]$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+f_{2}\left(\alpha x_{1}+\left(1-\alpha\right)x_{2}\right)\le\alpha f_{2}\left(x_{1}\right)+\left(1-\alpha\right)f_{2}\left(x_{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, let 
+\begin_inset Formula $x_{1},x_{2}\in C$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha\in\left[0,1\right]$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+g\left(\alpha x_{1}+\left(1-\alpha\right)x_{2}\right) & =max_{i=1,2}f_{i}\left(\alpha x_{1}+\left(1-\alpha\right)x_{2}\right)\\
+ & \le max_{i=1,2}\left(\alpha f_{i}\left(x_{1}\right)+\left(1-\alpha\right)f_{i}\left(x_{2}\right)\right)\\
+ & \le\alpha max_{i=1,2}f_{i}\left(x_{1}\right)+\left(1-\alpha\right)max_{i=1,2}f_{i}\left(x_{2}\right)\\
+ & =\alpha g\left(x_{1}\right)+\left(1-\alpha\right)g\left(x_{2}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, 
+\begin_inset Formula $g\left(x\right)$
+\end_inset
+
+ is a convex function.
+\end_layout
+
+\begin_layout Subsubsection*
+Q2:
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ be a convex function defined over a convex domain 
+\begin_inset Formula $C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Show that the level set 
+\begin_inset Formula $L=\left\{ x\in C:f\left(x\right)\le\alpha\right\} $
+\end_inset
+
+ is convex.
+\end_layout
+
+\begin_layout Subsubsection*
+Solution:
+\end_layout
+
+\begin_layout Standard
+We know that 
+\begin_inset Formula $f$
+\end_inset
+
+ is a convex function, hence 
+\begin_inset Formula $\forall x_{1},x_{2}\in C$
+\end_inset
+
+, 
+\begin_inset Formula $\forall\beta\in\left[0,1\right]$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+f\left(\beta x_{1}+\left(1-\beta\right)x_{2}\right)\le\beta f\left(x_{1}\right)+\left(1-\beta\right)f\left(x_{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $x_{1},x_{2}\in L$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+From the definition of 
+\begin_inset Formula $L$
+\end_inset
+
+, 
+\begin_inset Formula $f\left(x_{1}\right)\le\alpha$
+\end_inset
+
+ and 
+\begin_inset Formula $f\left(x_{2}\right)\le\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Now, let 
+\begin_inset Formula $\beta\in\left[0,1\right]$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+f\left(\beta x_{1}+\left(1-\beta\right)x_{2}\right) & \le\beta f\left(x_{1}\right)+\left(1-\beta\right)f\left(x_{2}\right)\\
+ & \le\beta\alpha+\left(1-\beta\right)\alpha\\
+ & =\alpha
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, 
+\begin_inset Formula $\text{\beta x_{1}+\left(1-\beta\right)x_{2} \ensuremath{\in L}}$
+\end_inset
+
+.
+ Hence, 
+\begin_inset Formula $L$
+\end_inset
+
+ in a convex set.
+\end_layout
+
+\begin_layout Subsubsection*
+Q3:
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ be a smooth and twice differentiable convex function continuously.
+ 
+\end_layout
+
+\begin_layout Standard
+Show that 
+\begin_inset Formula $g\left(x\right)=f\left(Ax\right)$
+\end_inset
+
+ is convex, where 
+\begin_inset Formula $A$
+\end_inset
+
+ is a matrix of appropriate size.
+ 
+\end_layout
+
+\begin_layout Standard
+Check positive semi-definiteness of the Hessian.
+\end_layout
+
+\begin_layout Subsubsection*
+Solution:
+\end_layout
+
+\begin_layout Standard
+We know that 
+\begin_inset Formula $f$
+\end_inset
+
+ is a convex function, hence 
+\begin_inset Formula $\forall x_{1},x_{2}\in C$
+\end_inset
+
+, 
+\begin_inset Formula $\forall\beta\in\left[0,1\right]$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+f\left(\beta x_{1}+\left(1-\beta\right)x_{2}\right)\le\beta f\left(x_{1}\right)+\left(1-\beta\right)f\left(x_{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $x_{1},x_{2}\in L,\beta\in\left[0,1\right]:$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+g\left(\beta x_{1}+\left(1-\beta\right)x_{2}\right) & =f\left(A\beta x_{1}+A\left(1-\beta\right)x_{2}\right)\\
+ & =f\left(\beta Ax_{1}+\left(1-\beta\right)Ax_{2}\right)\\
+ & \le\beta f\left(Ax_{1}\right)+\left(1-\beta\right)f\left(Ax_{2}\right)\\
+ & =\beta g\left(Ax_{1}\right)+\left(1-\beta\right)g\left(Ax_{2}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, 
+\begin_inset Formula $g\left(x\right)$
+\end_inset
+
+ is a convex function.
+\end_layout
+
+\begin_layout Standard
+As we have seen in HW1, the Hessian of 
+\begin_inset Formula $g$
+\end_inset
+
+ equals to: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+H\left(x\right)=A^{T}\nabla^{2}f\left(Ax\right)A
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Given that 
+\begin_inset Formula $f$
+\end_inset
+
+ is smooth and twice differentiable convex function continuously, 
+\begin_inset Formula $\nabla^{2}f$
+\end_inset
+
+ is PSD.
+\end_layout
+
+\begin_layout Standard
+Therefore, 
+\begin_inset Formula $\forall x\in\mathbb{R}^{n}:$
+\end_inset
+
+ 
+\begin_inset Formula $x^{T}\nabla^{2}fx\ge0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\forall x\in\mathbb{R}^{n}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x^{T}Hx=x^{T}A^{T}\nabla^{2}fAx\overset{_{z=Ax}}{=}z^{T}\nabla^{2}fz\ge0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hence, 
+\begin_inset Formula $H$
+\end_inset
+
+ is PSD.
+\end_layout
+
+\begin_layout Subsubsection*
+Q4:
+\end_layout
+
+\begin_layout Standard
+Phrase and prove Jensen’s inequality for the discrete case.
+\end_layout
+
+\begin_layout Subsubsection*
+Solution:
+\end_layout
+
+\begin_layout Standard
+Jensen’s inequality:
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $f:C\to\mathbb{R}$
+\end_inset
+
+ be a convex function and let 
+\begin_inset Formula $x_{1},x_{2},\dots,x_{n}\in C$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\alpha_{1},\alpha_{2},\dots,\alpha_{n}$
+\end_inset
+
+ are positive numbers such that 
+\begin_inset Formula $\sum_{i=1}^{n}\alpha_{i}=1$
+\end_inset
+
+ then:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f\left(\sum_{i=1}^{n}\alpha_{i}x_{i}\right)\le\sum_{i=1}^{n}\alpha_{i}f\left(x_{i}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Proof, by induction:
+\end_layout
+
+\begin_layout Itemize
+For 
+\begin_inset Formula $n=2$
+\end_inset
+
+: 
+\begin_inset Formula $a_{2}=1-\alpha_{1}.$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+The statement:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f\left(\alpha_{1}x_{1}+\left(1-\alpha_{1}\right)x_{2}\right)\le\alpha_{1}f\left(x_{1}\right)+\left(1-\alpha_{1}\right)f\left(x_{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is true by the convexity of 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Suppose that the statement is true for some 
+\begin_inset Formula $n$
+\end_inset
+
+, we need to prove that it's true for 
+\begin_inset Formula $n+1$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Let 
+\begin_inset Formula $\alpha_{1},\alpha_{2},\dots,\alpha_{n+1}$
+\end_inset
+
+ be positive numbers such that 
+\begin_inset Formula $\sum_{i=1}^{n+1}\alpha_{i}=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+By the convexity of 
+\begin_inset Formula $f$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+f\left(\sum_{i=1}^{n+1}\alpha_{i}x_{i}\right) & =f\left(\alpha_{1}x_{1}+\sum_{i=2}^{n+1}\alpha_{i}x_{i}\right)\\
+ & =f\left(\alpha_{1}x_{1}+\left(1-\alpha_{1}\right)\sum_{i=2}^{n+1}\frac{\alpha_{i}}{1-\alpha_{1}}x_{i}\right)\\
+ & \le\alpha_{1}f\left(x_{1}\right)+\left(1-\alpha_{1}\right)f\left(\sum_{i=2}^{n+1}\frac{\alpha_{i}}{1-\alpha_{1}}x_{i}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $\sum_{i=2}^{n+1}\frac{\alpha_{i}}{1-\alpha_{1}}=1$
+\end_inset
+
+, by the induction hypotheses we get:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\alpha_{1}f\left(x_{1}\right)+\left(1-\alpha_{1}\right)f\left(\sum_{i=2}^{n+1}\frac{\alpha_{i}}{1-\alpha_{1}}x_{i}\right) & \le\alpha_{1}f\left(x_{1}\right)+\left(1-\alpha_{1}\right)\sum_{i=2}^{n+1}\frac{\alpha_{i}}{1-\alpha_{1}}f\left(x_{i}\right)\\
+ & =\alpha_{1}f\left(x_{1}\right)+\sum_{i=2}^{n+1}\alpha_{i}f\left(x_{i}\right)\\
+ & =\sum_{i=1}^{n+1}\alpha_{i}f\left(x_{i}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align right
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection*
+Q5:
+\end_layout
+
+\begin_layout Standard
+Using Jensen inequality, prove arithmetic geometric mean inequality:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{x_{1}+x_{2}+\dots+x_{n}}{n}\ge\sqrt[n]{x_{1}\cdot x_{2}\cdots x_{n}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\begin_inset Formula $\forall i,\ x_{i}>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Solution:
+\end_layout
+
+\begin_layout Standard
+We know that 
+\begin_inset Formula $log\left(\cdot\right)$
+\end_inset
+
+ is a concave function.
+ Hence, 
+\begin_inset Formula $-log\left(\cdot\right)$
+\end_inset
+
+ is a convex function.
+ 
+\end_layout
+
+\begin_layout Standard
+Therefore, using Jensen’s inequality, where 
+\begin_inset Formula $\forall i:\ \alpha_{i}=\frac{1}{n}$
+\end_inset
+
+ yields:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+log\left(\frac{x_{1}+x_{2}+\dots+x_{n}}{n}\right) & =log\left(\sum_{i=1}^{n}\alpha_{i}x_{i}\right)\\
+ & \ge\sum_{i=1}^{n}\alpha_{i}log\left(x_{i}\right)\\
+ & =\frac{1}{n}log\left(x_{1}\right)+\cdots+\frac{1}{n}log\left(x_{n}\right)\\
+ & =\frac{1}{n}log\left(x_{1}\cdot x_{2}\cdots x_{n}\right)\\
+ & =log\left(\sqrt[n]{x_{1}\cdot x_{2}\cdots x_{n}}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $log\left(\cdot\right)$
+\end_inset
+
+ is strictly increasing,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{x_{1}+x_{2}+\dots+x_{n}}{n}\ge\sqrt[n]{x_{1}\cdot x_{2}\cdots x_{n}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align right
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Task 2 – Gradient Descent Analytical Convergence:
+\end_layout
+
+\begin_layout Subsubsection*
+Q6:
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $f\left(x\right)=\frac{1}{2}x^{T}Qx-b^{T}x+c$
+\end_inset
+
+ be the function to minimize, where 
+\begin_inset Formula $𝑄\succ0$
+\end_inset
+
+ is a symmetric matrix.
+\end_layout
+
+\begin_layout Enumerate
+We will define the condition number of a positive definite matrix 
+\begin_inset Formula $𝐴$
+\end_inset
+
+ as 
+\begin_inset Formula $\theta\triangleq\frac{\lambda_{max}}{\lambda_{min}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Write an upper bound on the convergence ratio 
+\begin_inset Formula $\beta$
+\end_inset
+
+ that we found in the tutorial, 
+\end_layout
+
+\begin_layout Standard
+using 
+\begin_inset Formula $\theta\left(Q\right)$
+\end_inset
+
+ - the condition number of 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Assume that the step size can be modified at any iteration.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Find the optimal step size 
+\begin_inset Formula $\alpha_{k}^{*}$
+\end_inset
+
+ .
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection*
+Solution:
+\end_layout
+
+\begin_layout Standard
+We start by finding 
+\begin_inset Formula $x^{*}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+df=Qx-b=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Qx^{*}=b
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+x^{*}=Q^{-1}b
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla f\left(x^{*}\right)=0$
+\end_inset
+
+ Hence, 
+\begin_inset Formula $\nabla f\left(x^{*}\right)=Qx^{*}-b$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From the definition of the gradient decent method,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x_{k+1}=x_{k}-\alpha\nabla f\left(x_{k}\right)=x_{k}-\alpha\left(Qx_{k}-b\right)=\left(I-\alpha Q\right)x_{k}+\alpha b
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+From the above, we get:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x_{k+1}=\left(I-\alpha Q\right)x_{k}+\alpha b=\left(I-\alpha Q\right)x_{k}+\alpha Qx^{*}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And therefore,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x_{k+1}-x^{*}=\left(I-\alpha Q\right)x_{k}+\alpha Qx^{*}-x^{*}=\left(I-\alpha Q\right)x_{k}+\left(\alpha Q-I\right)x^{*}=\left(I-\alpha Q\right)\left(x_{k}-x^{*}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As we have learned in Numerical Algorithms, 
+\begin_inset Formula $\left\Vert Ax\right\Vert \le\left\Vert A\right\Vert \cdot\left\Vert x\right\Vert $
+\end_inset
+
+ for every norm.
+\end_layout
+
+\begin_layout Standard
+Hence: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\Vert \left(I-\alpha Q\right)\left(x_{k}-x^{*}\right)\right\Vert _{2}\le\left\Vert \left(I-\alpha Q\right)\right\Vert _{2}\cdot\left\Vert \left(x_{k}-x^{*}\right)\right\Vert _{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\beta & \triangleq\frac{\left\Vert x_{k+1}-x^{*}\right\Vert _{2}}{\left\Vert x_{k}-x^{*}\right\Vert _{2}}\\
+ & =\frac{\left\Vert \left(I-\alpha Q\right)\left(x_{k}-x^{*}\right)\right\Vert _{2}}{\left\Vert x_{k}-x^{*}\right\Vert _{2}}\\
+ & \le\frac{\left\Vert \left(I-\alpha Q\right)\right\Vert _{2}\cdot\left\Vert \left(x_{k}-x^{*}\right)\right\Vert _{2}}{\left\Vert x_{k}-x^{*}\right\Vert _{2}}\\
+ & =\left\Vert \left(I-\alpha Q\right)\right\Vert _{2}\\
+ & =\sigma_{max}\left(I-\alpha Q\right)\\
+ & =max_{i}\left\{ \left|1-\alpha\lambda_{i}\right|\right\} 
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hence, we need to find:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\alpha_{opt}=argmin_{\alpha}max_{i}\left\{ \left|1-\alpha\lambda_{i}\right|\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can solve this problem graphically:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename lambdas.svg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Looking on the graph we see that the optimal solution satisfies:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+1-\alpha_{opt}\lambda_{min} & =\alpha_{opt}\lambda_{max}-1\\
+\alpha_{opt} & =\frac{2}{\lambda_{min}+\lambda_{max}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\beta & \le max_{i}\left\{ \left|1-\alpha_{opt}\lambda_{i}\right|\right\} \\
+ & =max\left\{ 1-\alpha_{opt}\lambda_{min},1-\alpha_{opt}\lambda_{max}\right\} \\
+ & =1-\alpha_{opt}\lambda_{min}\\
+ & =1-\frac{2}{\lambda_{min}+\lambda_{max}}\lambda_{min}\\
+ & =\frac{\lambda_{max}-\lambda_{min}}{\lambda_{max}+\lambda_{min}}\\
+ & =\frac{\theta\left(Q\right)-1}{\theta\left(Q\right)+1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+We know from above that:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x_{k+1}=x_{k}-\alpha_{k}\nabla f\left(x_{k}\right)=x_{k}+\alpha_{k}d_{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The optimal step is given by:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\alpha_{k}^{*}=argmin_{\alpha_{k}}f\left(x_{k+1}\right)=argmin_{\alpha_{k}}f\left(x_{k}-\alpha_{k}\nabla f\left(x_{k}\right)\right)=argmin_{\alpha_{k}}f\left(x_{k}+\alpha_{k}d_{k}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $f\left(x\right)=\frac{1}{2}x^{T}Qx-b^{T}x+c$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\alpha_{k}^{*} & =argmin_{\alpha_{k}}\frac{1}{2}\left(x_{k}+\alpha_{k}d_{k}\right)^{T}Q\left(x_{k}+\alpha_{k}d_{k}\right)-b^{T}\left(x_{k}+\alpha_{k}d_{k}\right)+c\\
+ & =argmin_{\alpha_{k}}\frac{1}{2}\left\Vert A\left(x_{k}+\alpha_{k}d_{k}\right)\right\Vert ^{2}-b^{T}\left(x_{k}+\alpha_{k}d_{k}\right)+c
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{df\left(x_{k}-\alpha_{k}d_{k}\right)}{\alpha_{k}}=d_{k}^{T}Q\left(x_{k}+\alpha_{k}d_{k}\right)-d_{k}^{T}b=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+d_{k}^{T}\left(Qx_{k}-b\right)+\alpha_{k}d_{k}^{T}Qd_{k}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Because 
+\begin_inset Formula $\nabla f\left(x_{k}\right)=Qx_{k}-b$
+\end_inset
+
+, we get that 
+\begin_inset Formula $d_{k}=-\nabla f\left(x_{k}\right)=b-Q_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Hence,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+0=d_{k}^{T}\left(Qx_{k}-b\right)+\alpha_{k}d_{k}^{T}Qd_{k}=-d_{k}^{T}d_{k}+\alpha_{k}d_{k}^{T}Qd_{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\alpha_{k}d_{k}^{T}Qd_{k}=d_{k}^{T}d_{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assuming that 
+\begin_inset Formula $d_{k}\ne0$
+\end_inset
+
+ (otherwise, 
+\begin_inset Formula $x_{k}=x^{*})$
+\end_inset
+
+, we have that 
+\begin_inset Formula $d_{k}^{T}Qd_{k}>0$
+\end_inset
+
+ because 
+\begin_inset Formula $Q\succ0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Therefore:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\alpha_{k}^{*}=\frac{d_{k}^{T}Qd_{k}}{d_{k}^{T}d_{k}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection*
+Q7:
+\end_layout
+
+\begin_layout Standard
+Let there be a strongly convex function 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Prove that if 
+\begin_inset Formula $\forall x\in Dom\left(f\right):\ mI\succcurlyeq\nabla^{2}f\left(x\right)\succcurlyeq MI$
+\end_inset
+
+ then:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{2m}\left\Vert \nabla f\left(x)\right)\right\Vert _{2}^{2}\le f\left(x\right)-f\left(x^{*}\right)\le\frac{1}{2M}\left\Vert \nabla f\left(x)\right)\right\Vert _{2}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Solution:
+\end_layout
+
+\begin_layout Standard
+From Taylor's multivariate theorem we know that:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\forall x,y\in\mathbb{R}^{n},\ \exists z\in\left[x,y\right]:\ f\left(y\right)=f\left(x\right)+\nabla f\left(x\right)^{T}\left(y-x\right)+\frac{1}{2}\left(y-x\right)^{T}\nabla^{2}f\left(z\right)\left(y-x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Strong convexity implies that:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f\left(y\right)\ge f\left(x\right)+\nabla f\left(x\right)^{T}\left(y-x\right)+\frac{1}{2}\left(y-x\right)^{T}M\left(y-x\right)=f\left(x\right)+\nabla f\left(x\right)^{T}\left(y-x\right)+\frac{1}{2}M\left\Vert y-x\right\Vert _{2}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The above function minimized at 
+\begin_inset Formula $y^{*}=x-\frac{1}{M}\nabla f\left(x\right).$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Therfore:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+f\left(y\right) & \ge f\left(x\right)+\nabla f\left(x\right)^{T}\left(y^{*}-x\right)+\frac{1}{2}M\left\Vert y^{*}-x\right\Vert _{2}^{2}\\
+ & =f\left(x\right)+\nabla f\left(x\right)^{T}\left(x-\frac{1}{M}\nabla f\left(x\right)-x\right)+\frac{1}{2}M\left\Vert x-\frac{1}{M}\nabla f\left(x\right)-x\right\Vert _{2}^{2}\\
+ & =f\left(x\right)-\frac{1}{M}\nabla f\left(x\right)^{T}\nabla f\left(x\right)+\frac{M}{2}\frac{1}{M^{2}}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\\
+ & =f\left(x\right)-\frac{1}{M}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}+\frac{1}{2M}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\\
+ & =f\left(x\right)-\frac{1}{2M}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On the other side of the inequality, we get:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f\left(y\right)\le f\left(x\right)+\nabla f\left(x\right)^{T}\left(y-x\right)+\frac{1}{2}\left(y-x\right)^{T}m\left(y-x\right)=f\left(x\right)+\nabla f\left(x\right)^{T}\left(y-x\right)+\frac{1}{2}m\left\Vert y-x\right\Vert _{2}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The above function minimized at 
+\begin_inset Formula $y^{*}=x-\frac{1}{m}\nabla f\left(x\right).$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Therfore:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+f\left(y\right) & \le f\left(x\right)+\nabla f\left(x\right)^{T}\left(y^{*}-x\right)+\frac{1}{2}<\left\Vert y^{*}-x\right\Vert _{2}^{2}\\
+ & =f\left(x\right)+\nabla f\left(x\right)^{T}\left(x-\frac{1}{m}\nabla f\left(x\right)-x\right)+\frac{1}{2}m\left\Vert x-\frac{1}{m}\nabla f\left(x\right)-x\right\Vert _{2}^{2}\\
+ & =f\left(x\right)-\frac{1}{m}\nabla f\left(x\right)^{T}\nabla f\left(x\right)+\frac{m}{2}\frac{1}{m^{2}}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\\
+ & =f\left(x\right)-\frac{1}{m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}+\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\\
+ & =f\left(x\right)-\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By choosing 
+\begin_inset Formula $y=x^{*}$
+\end_inset
+
+ we get:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f\left(x\right)-\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\ge f\left(x^{*}\right)\ge f\left(x\right)-\frac{1}{2M}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\ge f\left(x^{*}\right)-f\left(x\right)\ge-\frac{1}{2M}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\le f\left(x\right)-f\left(x^{*}\right)\le\frac{1}{2M}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align right
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
