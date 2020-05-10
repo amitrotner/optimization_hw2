@@ -1444,5 +1444,56 @@ f\left(x\right)-\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2
 
 \end_layout
 
+\begin_layout Subsubsection*
+Q8:
+\end_layout
+
+\begin_layout Subsubsection*
+Solution:
+\end_layout
+
+\begin_layout Enumerate
+The gradient of the Rosenbrock function:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla f\left(x\right)=\begin{pmatrix}-2\left(1-x_{1}\right)-400x_{1}\left(x_{2}-x_{1}^{2}\right)\\
+-2\left(1-x_{2}\right)-400x_{2}\left(x_{3}-x_{2}^{2}\right)+200\left(x_{2}-x_{1}^{2}\right)\\
+\vdots\\
+\vdots\\
+-2\left(1-x_{N-1}\right)+400x_{N-1}\left(x_{N}-x_{N-1}^{2}\right)+200\left(x_{N}-x_{N-1}^{2}\right)\\
+200\left(x_{N}-x_{N-1}^{2}\right)
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Hessian of the Rosenbrock function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla^{2}f\left(x\right)=\begin{pmatrix}2-400x_{2}+1200x_{1}^{2} & -400x_{1}\\
+-400x_{1} & 202-400x_{3}+1200x_{2}^{2} & -400x_{2}\\
+ & \ddots & \ddots\\
+ & -400x_{N-1} & 202-400x_{N}+1200x_{N-1}^{2} & -400x_{N}\\
+ &  &  & -400x_{N-1} & 200
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \end_body
 \end_document
