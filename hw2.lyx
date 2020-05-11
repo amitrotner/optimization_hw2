@@ -172,7 +172,7 @@ begin{center}
 
 \end_inset
 
-Gradient Descent method and Newton method
+Gradient Descent method and Newton's method
 \begin_inset ERT
 status open
 
@@ -1334,7 +1334,7 @@ The above function minimized at
 \end_layout
 
 \begin_layout Standard
-Therfore:
+Therefore:
 \end_layout
 
 \begin_layout Standard
@@ -1376,7 +1376,7 @@ The above function minimized at
 \end_layout
 
 \begin_layout Standard
-Therfore:
+Therefore:
 \end_layout
 
 \begin_layout Standard
@@ -1453,10 +1453,25 @@ Solution:
 \end_layout
 
 \begin_layout Enumerate
-The gradient of the Rosenbrock function:
+Given the Rosenbrock function:
 \end_layout
 
 \begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f\left(\left(x_{1},x_{2},\dots,x_{N}\right)\right)=\sum_{i=1}^{N-1}\left[\left(1-x_{i}\right)^{2}+100\left(x_{i+1}-x_{i}^{2}\right)^{2}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Deriving analytically the gradient, yields:
+\end_layout
+
 \begin_layout Standard
 \begin_inset Formula 
 \[
@@ -1475,7 +1490,7 @@ The gradient of the Rosenbrock function:
 \end_layout
 
 \begin_layout Standard
-The Hessian of the Rosenbrock function:
+Deriving analytically the Hessian, yields:
 \end_layout
 
 \begin_layout Standard
@@ -1494,6 +1509,218 @@ The Hessian of the Rosenbrock function:
 
 \end_layout
 
+\end_deeper
+\begin_layout Enumerate
+Using the Gradient Descent method with the starting point 
+\begin_inset Formula $x_{0}=\left(0,0,\dots,0\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $N=10$
+\end_inset
+
+, we get:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename graphs/rosenbrock_gradient_descent.svg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+TODO: Add a short explanation about the graph
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Given the quadratic function 
+\begin_inset Formula $f\left(x\right)=\frac{1}{2}x^{T}Hx$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Using the Gradient Descent method with the starting point 
+\begin_inset Formula $x_{0\_quad}$
+\end_inset
+
+, we get: 
+\end_layout
+
+\begin_layout Itemize
+With 
+\begin_inset Formula $H=H\_well$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename graphs/quad_H_well_gradient_descent.svg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+TODO: Add a short explanation about the graph
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+With 
+\begin_inset Formula $H=H\_ill$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename graphs/quad_H_ill_gradient_descent.svg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+TODO: Add a short explanation about the graph
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsubsection*
+Q9:
+\end_layout
+
+\begin_layout Subsubsection*
+Solution:
+\end_layout
+
+\begin_layout Enumerate
+Given the Rosenbrock function,
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Using the Newton's method with the starting point 
+\begin_inset Formula $x_{0}=\left(0,0,\dots,0\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $N=10$
+\end_inset
+
+, we get:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename graphs/rosenbrock_newton.svg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+TODO: Add a shot explanation about the graph
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Given the quadratic function 
+\begin_inset Formula $f\left(x\right)=\frac{1}{2}x^{T}Hx$
+\end_inset
+
+,
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Using the Newton's method with the starting point 
+\begin_inset Formula $x_{0\_quad}$
+\end_inset
+
+, we get: 
+\end_layout
+
+\begin_layout Itemize
+With 
+\begin_inset Formula $H=H\_well$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename graphs/quad_H_well_newton.svg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+TODO: Add a short explanation about the graph
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+With 
+\begin_inset Formula $H=H\_ill$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename graphs/quad_H_ill_newton.svg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+TODO: Add a short explanation about the graph
+\end_layout
+
+\end_deeper
 \end_deeper
 \end_body
 \end_document
