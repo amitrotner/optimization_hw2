@@ -172,7 +172,7 @@ begin{center}
 
 \end_inset
 
-Gradient Descent method and Newton method
+Gradient Descent method and Newton's method
 \begin_inset ERT
 status open
 
@@ -1317,49 +1317,7 @@ Strong convexity implies that:
 \begin_layout Standard
 \begin_inset Formula 
 \[
-f\left(y\right)\ge f\left(x\right)+\nabla f\left(x\right)^{T}\left(y-x\right)+\frac{1}{2}\left(y-x\right)^{T}m\left(y-x\right)=f\left(x\right)+\nabla f\left(x\right)^{T}\left(y-x\right)+\frac{1}{2}m\left\Vert y-x\right\Vert _{2}^{2}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The above function minimized at 
-\begin_inset Formula $y^{*}=x-\frac{1}{m}\nabla f\left(x\right).$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-Therfore:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-f\left(y\right) & \ge f\left(x\right)+\nabla f\left(x\right)^{T}\left(y^{*}-x\right)+\frac{1}{2}m\left\Vert y^{*}-x\right\Vert _{2}^{2}\\
- & =f\left(x\right)+\nabla f\left(x\right)^{T}\left(x-\frac{1}{m}\nabla f\left(x\right)-x\right)+\frac{1}{2}m\left\Vert x-\frac{1}{m}\nabla f\left(x\right)-x\right\Vert _{2}^{2}\\
- & =f\left(x\right)-\frac{1}{m}\nabla f\left(x\right)^{T}\nabla f\left(x\right)+\frac{m}{2}\frac{1}{m^{2}}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\\
- & =f\left(x\right)-\frac{1}{m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}+\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\\
- & =f\left(x\right)-\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-On the other side of the inequality, we get:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-f\left(y\right)\le f\left(x\right)+\nabla f\left(x\right)^{T}\left(y-x\right)+\frac{1}{2}\left(y-x\right)^{T}M\left(y-x\right)=f\left(x\right)+\nabla f\left(x\right)^{T}\left(y-x\right)+\frac{1}{2}M\left\Vert y-x\right\Vert _{2}^{2}
+f\left(y\right)\ge f\left(x\right)+\nabla f\left(x\right)^{T}\left(y-x\right)+\frac{1}{2}\left(y-x\right)^{T}M\left(y-x\right)=f\left(x\right)+\nabla f\left(x\right)^{T}\left(y-x\right)+\frac{1}{2}M\left\Vert y-x\right\Vert _{2}^{2}
 \]
 
 \end_inset
@@ -1376,17 +1334,59 @@ The above function minimized at
 \end_layout
 
 \begin_layout Standard
-Therfore:
+Therefore:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+f\left(y\right) & \ge f\left(x\right)+\nabla f\left(x\right)^{T}\left(y^{*}-x\right)+\frac{1}{2}M\left\Vert y^{*}-x\right\Vert _{2}^{2}\\
+ & =f\left(x\right)+\nabla f\left(x\right)^{T}\left(x-\frac{1}{M}\nabla f\left(x\right)-x\right)+\frac{1}{2}M\left\Vert x-\frac{1}{M}\nabla f\left(x\right)-x\right\Vert _{2}^{2}\\
+ & =f\left(x\right)-\frac{1}{M}\nabla f\left(x\right)^{T}\nabla f\left(x\right)+\frac{M}{2}\frac{1}{M^{2}}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\\
+ & =f\left(x\right)-\frac{1}{M}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}+\frac{1}{2M}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\\
+ & =f\left(x\right)-\frac{1}{2M}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On the other side of the inequality, we get:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f\left(y\right)\le f\left(x\right)+\nabla f\left(x\right)^{T}\left(y-x\right)+\frac{1}{2}\left(y-x\right)^{T}m\left(y-x\right)=f\left(x\right)+\nabla f\left(x\right)^{T}\left(y-x\right)+\frac{1}{2}m\left\Vert y-x\right\Vert _{2}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The above function minimized at 
+\begin_inset Formula $y^{*}=x-\frac{1}{m}\nabla f\left(x\right).$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Therefore:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
 f\left(y\right) & \le f\left(x\right)+\nabla f\left(x\right)^{T}\left(y^{*}-x\right)+\frac{1}{2}<\left\Vert y^{*}-x\right\Vert _{2}^{2}\\
- & =f\left(x\right)+\nabla f\left(x\right)^{T}\left(x-\frac{1}{M}\nabla f\left(x\right)-x\right)+\frac{1}{2}M\left\Vert x-\frac{1}{M}\nabla f\left(x\right)-x\right\Vert _{2}^{2}\\
- & =f\left(x\right)-\frac{1}{M}\nabla f\left(x\right)^{T}\nabla f\left(x\right)+\frac{M}{2}\frac{1}{M^{2}}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\\
- & =f\left(x\right)-\frac{1}{M}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}+\frac{1}{2M}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\\
- & =f\left(x\right)-\frac{1}{2M}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}
+ & =f\left(x\right)+\nabla f\left(x\right)^{T}\left(x-\frac{1}{m}\nabla f\left(x\right)-x\right)+\frac{1}{2}m\left\Vert x-\frac{1}{m}\nabla f\left(x\right)-x\right\Vert _{2}^{2}\\
+ & =f\left(x\right)-\frac{1}{m}\nabla f\left(x\right)^{T}\nabla f\left(x\right)+\frac{m}{2}\frac{1}{m^{2}}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\\
+ & =f\left(x\right)-\frac{1}{m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}+\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\\
+ & =f\left(x\right)-\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}
 \end{align*}
 
 \end_inset
@@ -1405,7 +1405,7 @@ By choosing
 \begin_layout Standard
 \begin_inset Formula 
 \[
-f\left(x\right)-\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\le f\left(x^{*}\right)\le f\left(x\right)-\frac{1}{2M}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}
+f\left(x\right)-\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\ge f\left(x^{*}\right)\ge f\left(x\right)-\frac{1}{2M}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}
 \]
 
 \end_inset
@@ -1416,7 +1416,7 @@ f\left(x\right)-\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2
 \begin_layout Standard
 \begin_inset Formula 
 \[
--\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\le f\left(x^{*}\right)-f\left(x\right)\le-\frac{1}{2M}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}
+-\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\ge f\left(x^{*}\right)-f\left(x\right)\ge-\frac{1}{2M}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}
 \]
 
 \end_inset
@@ -1427,7 +1427,7 @@ f\left(x\right)-\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\ge f\left(x\right)-f\left(x^{*}\right)\ge\frac{1}{2M}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}
+\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}\le f\left(x\right)-f\left(x^{*}\right)\le\frac{1}{2M}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2}
 \]
 
 \end_inset
@@ -1444,5 +1444,382 @@ f\left(x\right)-\frac{1}{2m}\left\Vert \nabla f\left(x\right)\right\Vert _{2}^{2
 
 \end_layout
 
+\begin_layout Subsubsection*
+Q8:
+\end_layout
+
+\begin_layout Subsubsection*
+Solution:
+\end_layout
+
+\begin_layout Enumerate
+Given the Rosenbrock function:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f\left(\left(x_{1},x_{2},\dots,x_{N}\right)\right)=\sum_{i=1}^{N-1}\left[\left(1-x_{i}\right)^{2}+100\left(x_{i+1}-x_{i}^{2}\right)^{2}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Deriving analytically the gradient, yields:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla f\left(x\right)=\begin{pmatrix}-2\left(1-x_{1}\right)-400x_{1}\left(x_{2}-x_{1}^{2}\right)\\
+-2\left(1-x_{2}\right)-400x_{2}\left(x_{3}-x_{2}^{2}\right)+200\left(x_{2}-x_{1}^{2}\right)\\
+\vdots\\
+\vdots\\
+-2\left(1-x_{N-1}\right)+400x_{N-1}\left(x_{N}-x_{N-1}^{2}\right)+200\left(x_{N}-x_{N-1}^{2}\right)\\
+200\left(x_{N}-x_{N-1}^{2}\right)
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Deriving analytically the Hessian, yields:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla^{2}f\left(x\right)=\begin{pmatrix}2-400x_{2}+1200x_{1}^{2} & -400x_{1}\\
+-400x_{1} & 202-400x_{3}+1200x_{2}^{2} & -400x_{2}\\
+ & \ddots & \ddots\\
+ & -400x_{N-1} & 202-400x_{N}+1200x_{N-1}^{2} & -400x_{N}\\
+ &  &  & -400x_{N-1} & 200
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Using the Gradient Descent method with the starting point 
+\begin_inset Formula $x_{0}=\left(0,0,\dots,0\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $N=10$
+\end_inset
+
+, we get:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename graphs/rosenbrock_gradient_descent.svg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The convergence rate is linear with 
+\begin_inset Formula $\frac{f\left(x_{k+1}\right)-f^{*}}{f\left(x_{k}\right)-f^{*}}\le0.9991365848557804<1$
+\end_inset
+
+ 
+\begin_inset Formula $\forall k$
+\end_inset
+
+ in range.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Given the quadratic function 
+\begin_inset Formula $f\left(x\right)=\frac{1}{2}x^{T}Hx$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Using the Gradient Descent method with the starting point 
+\begin_inset Formula $x_{0\_quad}$
+\end_inset
+
+, we get: 
+\end_layout
+
+\begin_layout Itemize
+With 
+\begin_inset Formula $H=H\_well$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename graphs/quad_H_well_gradient_descent.svg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The convergence rate is linear with 
+\begin_inset Formula $\frac{f\left(x_{k+1}\right)-f^{*}}{f\left(x_{k}\right)-f^{*}}\le0.7441284726564737<1$
+\end_inset
+
+ 
+\begin_inset Formula $\forall k$
+\end_inset
+
+ in range.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+With 
+\begin_inset Formula $H=H\_ill$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename graphs/quad_H_ill_gradient_descent.svg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The convergence rate is linear with 
+\begin_inset Formula $\frac{f\left(x_{k+1}\right)-f^{*}}{f\left(x_{k}\right)-f^{*}}\le0.9996612219610987<1$
+\end_inset
+
+ 
+\begin_inset Formula $\forall k$
+\end_inset
+
+ in range.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsubsection*
+Q9:
+\end_layout
+
+\begin_layout Subsubsection*
+Solution:
+\end_layout
+
+\begin_layout Enumerate
+Given the Rosenbrock function,
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Using the Newton's method with the starting point 
+\begin_inset Formula $x_{0}=\left(0,0,\dots,0\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $N=10$
+\end_inset
+
+, we get:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename graphs/rosenbrock_newton.svg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The convergence rate is quadratic with 
+\begin_inset Formula $\frac{f\left(x_{k+1}\right)-f^{*}}{\left(f\left(x_{k}\right)-f^{*}\right)^{2}}\le C=75.63226955247731$
+\end_inset
+
+ 
+\begin_inset Formula $\forall k$
+\end_inset
+
+ in range.
+\end_layout
+
+\begin_layout Standard
+In addition, while using Newton's method we managed to speed up convergence
+ from 
+\begin_inset Formula $17500$
+\end_inset
+
+ iterations 
+\end_layout
+
+\begin_layout Standard
+with Gradient Descent to 
+\begin_inset Formula $26$
+\end_inset
+
+ iterations.
+ But, we had to pay 
+\begin_inset Formula $O\left(\frac{n^{3}}{6}\right)$
+\end_inset
+
+ for the Cholesky factorization and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $O\left(n^{2}\right)$
+\end_inset
+
+ for storing the Hessian.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Given the quadratic function 
+\begin_inset Formula $f\left(x\right)=\frac{1}{2}x^{T}Hx$
+\end_inset
+
+,
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Using the Newton's method with the starting point 
+\begin_inset Formula $x_{0\_quad}$
+\end_inset
+
+, we get: 
+\end_layout
+
+\begin_layout Itemize
+With 
+\begin_inset Formula $H=H\_well$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename graphs/quad_H_well_newton.svg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The function to minimize using newton method is quadratic, therefore a second
+ order 
+\end_layout
+
+\begin_layout Standard
+Taylor expansion of the function, is the function itself.
+ Hence, after one iteration
+\end_layout
+
+\begin_layout Standard
+of the algorithm we have found the value that minimizes that quadratic function.
+ 
+\end_layout
+
+\begin_layout Standard
+While, when we used the Gradient Descent method, it took over 
+\begin_inset Formula $50$
+\end_inset
+
+ iterations.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+With 
+\begin_inset Formula $H=H\_ill$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename graphs/quad_H_ill_newton.svg
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The function to minimize using newton method is quadratic, therefore a second
+ order 
+\end_layout
+
+\begin_layout Standard
+Taylor expansion of the function, is the function itself.
+ Hence, after one iteration
+\end_layout
+
+\begin_layout Standard
+of the algorithm we have found the value that minimizes that quadratic function.
+ 
+\end_layout
+
+\begin_layout Standard
+While, when we used the Gradient Descent method, it took over 
+\begin_inset Formula $35000$
+\end_inset
+
+ iterations.
+\end_layout
+
+\end_deeper
+\end_deeper
 \end_body
 \end_document

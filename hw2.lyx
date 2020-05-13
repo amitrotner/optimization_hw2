@@ -1536,7 +1536,15 @@ Using the Gradient Descent method with the starting point
 \end_layout
 
 \begin_layout Standard
-TODO: Add a short explanation about the graph
+The convergence rate is linear with 
+\begin_inset Formula $\frac{f\left(x_{k+1}\right)-f^{*}}{f\left(x_{k}\right)-f^{*}}\le0.9991365848557804<1$
+\end_inset
+
+ 
+\begin_inset Formula $\forall k$
+\end_inset
+
+ in range.
 \end_layout
 
 \end_deeper
@@ -1579,7 +1587,15 @@ With
 \end_layout
 
 \begin_layout Standard
-TODO: Add a short explanation about the graph
+The convergence rate is linear with 
+\begin_inset Formula $\frac{f\left(x_{k+1}\right)-f^{*}}{f\left(x_{k}\right)-f^{*}}\le0.7441284726564737<1$
+\end_inset
+
+ 
+\begin_inset Formula $\forall k$
+\end_inset
+
+ in range.
 \end_layout
 
 \end_deeper
@@ -1605,7 +1621,15 @@ With
 \end_layout
 
 \begin_layout Standard
-TODO: Add a short explanation about the graph
+The convergence rate is linear with 
+\begin_inset Formula $\frac{f\left(x_{k+1}\right)-f^{*}}{f\left(x_{k}\right)-f^{*}}\le0.9996612219610987<1$
+\end_inset
+
+ 
+\begin_inset Formula $\forall k$
+\end_inset
+
+ in range.
 \end_layout
 
 \end_deeper
@@ -1648,7 +1672,48 @@ Using the Newton's method with the starting point
 \end_layout
 
 \begin_layout Standard
-TODO: Add a shot explanation about the graph
+The convergence rate is quadratic with 
+\begin_inset Formula $\frac{f\left(x_{k+1}\right)-f^{*}}{\left(f\left(x_{k}\right)-f^{*}\right)^{2}}\le C=75.63226955247731$
+\end_inset
+
+ 
+\begin_inset Formula $\forall k$
+\end_inset
+
+ in range.
+\end_layout
+
+\begin_layout Standard
+Therefore, the convergence rate is quadratic from the first iteration.
+\end_layout
+
+\begin_layout Standard
+In addition, while using Newton's method we managed to speed up convergence
+ from 
+\begin_inset Formula $17500$
+\end_inset
+
+ iterations 
+\end_layout
+
+\begin_layout Standard
+with Gradient Descent to 
+\begin_inset Formula $26$
+\end_inset
+
+ iterations.
+ But, we had to pay 
+\begin_inset Formula $O\left(\frac{n^{3}}{6}\right)$
+\end_inset
+
+ for the Cholesky factorization and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $O\left(n^{2}\right)$
+\end_inset
+
+ for storing the Hessian.
 \end_layout
 
 \end_deeper
@@ -1691,7 +1756,26 @@ With
 \end_layout
 
 \begin_layout Standard
-TODO: Add a short explanation about the graph
+The function to minimize using newton method is quadratic, therefore a second
+ order 
+\end_layout
+
+\begin_layout Standard
+Taylor expansion of the function, is the function itself.
+ Hence, after one iteration
+\end_layout
+
+\begin_layout Standard
+of the algorithm we have found the value that minimizes that quadratic function.
+ 
+\end_layout
+
+\begin_layout Standard
+While, when we used the Gradient Descent method, it took over 
+\begin_inset Formula $50$
+\end_inset
+
+ iterations.
 \end_layout
 
 \end_deeper
@@ -1717,7 +1801,26 @@ With
 \end_layout
 
 \begin_layout Standard
-TODO: Add a short explanation about the graph
+The function to minimize using newton method is quadratic, therefore a second
+ order 
+\end_layout
+
+\begin_layout Standard
+Taylor expansion of the function, is the function itself.
+ Hence, after one iteration
+\end_layout
+
+\begin_layout Standard
+of the algorithm we have found the value that minimizes that quadratic function.
+ 
+\end_layout
+
+\begin_layout Standard
+While, when we used the Gradient Descent method, it took over 
+\begin_inset Formula $35000$
+\end_inset
+
+ iterations.
 \end_layout
 
 \end_deeper
