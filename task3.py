@@ -92,7 +92,8 @@ def gradient_decent(f, der_f, x0, alpha0, sigma, beta, epsilon, figure_title, sa
         d = -der_f(x)
         convergence_curve += [float(f(x))]
         iter += 1
-    plot_graph(figure_title, iter, convergence_curve, save_name)
+    # plot_graph(figure_title, iter, convergence_curve, save_name)
+    plot_graph('test convergence rate', iter, convergence_rate(convergence_curve, False), 'test convergence rate')
     return x
 
 
@@ -105,6 +106,7 @@ def newton(f, der_f, hes_f, x0, alpha0, sigma, beta, epsilon, figure_title, save
     iter = 1
     convergence_curve = []
     convergence_curve += [f(x)]
+    convergence_points = [x]
     while np.linalg.norm(der_f(x)) >= epsilon:
         alpha = alpha0
         F_armijo = (f(x + alpha * d) - f(x))
@@ -115,15 +117,29 @@ def newton(f, der_f, hes_f, x0, alpha0, sigma, beta, epsilon, figure_title, save
             F_armijo_sigma = (sigma * alpha * np.matmul(der_f(x).T, d))
         x_k = x
         x = x + alpha * d
-        print(np.linalg.norm(x_k) / np.linalg.norm(x) ** 2)
         L, D, e = mcholmz.modifiedChol(hes_f(x))
         grad = der_f(x)
         y = scipy.linalg.solve_triangular(-L, grad, lower=True)
         d = scipy.linalg.solve_triangular(np.matmul(np.diagflat(D), L.T), y, lower=False)
         convergence_curve += [float(f(x))]
+        convergence_points += [x]
         iter += 1
-    plot_graph(figure_title, iter, convergence_curve, save_name)
+    # plot_graph(figure_title, iter, convergence_curve, save_name)
+    plot_graph('test convergence rate', iter, convergence_rate(convergence_curve, True), 'test convergence rate')
     return x
+
+
+def convergence_rate(convergence_points, square):
+    Ms = np.empty(len(convergence_points))
+    for i, x_i in enumerate(convergence_points[:-1]):
+        if square:
+            Ms[i] = (np.linalg.norm(convergence_points[i + 1])) / (np.linalg.norm(x_i) ** 2)
+        else:
+            Ms[i] = (np.linalg.norm(convergence_points[i+1]))/(np.linalg.norm(x_i))
+    Ms[-1] = 0
+    print(np.max(Ms))
+    print()
+    return Ms
 
 
 if __name__ == '__main__':
